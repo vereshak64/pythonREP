@@ -18,7 +18,7 @@ for x in result:
     print(x[3][0])
 
 for y in result2:
-    pprint.pprint(y[3])
+    #pprint.pprint(y[3])
     for z in y[3]:
         print(z)
 
