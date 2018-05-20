@@ -32,9 +32,9 @@ for file in dir:
 # Проверочная
 # конструкция
 
-#print("Длинна ip массива " + str(len(data['ip'])))
+print("Длинна ip массива " + str(len(data['ip'])))
 data['ip'] = list(set(data['ip'])) # Убираем дубликаты
-#print("Длинна ip массива " + str(len(data['ip'])))
+print("Длинна ip массива " + str(len(data['ip'])))
 print(data['ip'])
 #print("Длинна int массива " + str(len(data['int'])))
 #data['ip'] = list(set(data['ip'])) # Убираем дубликаты
