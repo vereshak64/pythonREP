@@ -7,17 +7,17 @@ data = {'ip': [], 'int': [], 'host': []}
 
 # функция классификатор
 def classify(row):
-    if bool(re.match(r' ip address.(([0-9]{1,3}\.){3}[0-9]{1,3})', row)):
+    if bool(re.match(r' ip address (([0-9]{1,3}\.){3}[0-9]{1,3})', row)):
         #print(row.strip(' ip address ').strip('\n').replace(' ', '/'))
         return data['ip'].append(ipaddress.IPv4Interface(row.strip(' ip address \n').replace(' ', '/')))
     if bool(re.match(r'interface', row)):
         #print(row.strip('interface'))
-        if row.strip('interface').strip() not in data['int']:
-            return data['int'].append(row.strip('interface\n'))
+        if row.strip(' interface').strip() not in data['int']:
+            return data['int'].append(row.strip(' interface\n'))
         #else:
         #    print("Повтор " + str(data['int'].index(row.strip('interface').strip())))
     if bool(re.match(r'hostname ', row)):
-        return data['host'].append(row.strip("hostname\n"))
+        return data['host'].append(row.strip(" hostname\n"))
 
 
 # Обрати внимание как прописан виндовый путь. Если путь внутри проекта то как не надо, или не обязательно... я чет хз
