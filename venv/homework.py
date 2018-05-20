@@ -25,9 +25,30 @@ for file in dir:
            #data[host]['interface']['ip address'] = ipaddress.IPv4Interface(config_row.strip(' ip address \n').replace(' ', '/'))
    config.close()
 
+   # Проверочная
+   # конструкция
+
+wb = openpyxl.Workbook()
+al = wb.active
+al = wb.create_sheet('first sheet', 0)
+al.title = 'first sheet title'
+width = al.column_dimensions['A']
+width.width = 21
+
+L = list()
 for i in data:
     print(i + "\n")
+    temp = [i]
+    al.append([])
+    al.append(temp)
+    al.append([])
     for j in data[i]:
+        temp1 = [j, str(data[i][j])]
+        #al.append(j + ": " + data[i][j])
+        al.append(temp1)
         print(j + ": " + str(data[i][j]))
+        if data[i][j]:
+            L.append(data[i][j])
+print(len(L))
 
-
+wb.save("sample.xlsx")
